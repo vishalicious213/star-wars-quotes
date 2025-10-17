@@ -10,6 +10,9 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + `/index.html`)
 })
 
+app.post("/quotes", (req, res) => {
+    console.log("Posting to /quotes")
+})
 
 // console.log("May Node be with you")
 // console.log(__dirname)
