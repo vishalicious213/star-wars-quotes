@@ -11,5 +11,5 @@ app.get("/", (req, res) => {
 })
 
 
-console.log("May Node be with you")
-console.log(__dirname)
+// console.log("May Node be with you")
+// console.log(__dirname)
