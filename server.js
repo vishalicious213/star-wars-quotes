@@ -14,7 +14,14 @@ app.use(express.urlencoded({ extended: true }))
 // })
 
 MongoClient.connect('mongodb+srv://vishalicious213_db_user:9aPRILVehFopzIju@cluster0.4srl9qn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-    .then(console.log("Connected to database"))
+    .then(client => {
+        console.log("Connected to database")
+        const db = client.db('star-wars-quotes')
+        app.use(/* ... */)
+        app.get(/* ... */)
+        app.post(/* ... */)
+        app.listen(/* ... */)
+    })
     .catch(error => console.error(error))
 
 
