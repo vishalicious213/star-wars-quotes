@@ -13,9 +13,9 @@ app.use(express.urlencoded({ extended: true }))
 //     console.log("Mongo connected to database")
 // })
 
-MongoClient.connect('mongodb+srv://vishalicious213_db_user:9aPRILVehFopzIju@cluster0.4srl9qn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(
-    console.log("Connected to database")
-).catch(error => console.error(error))
+MongoClient.connect('mongodb+srv://vishalicious213_db_user:9aPRILVehFopzIju@cluster0.4srl9qn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+    .then(console.log("Connected to database"))
+    .catch(error => console.error(error))
 
 
 app.listen(3000, function () {
