@@ -6,17 +6,11 @@ const app = express()
 // to the body property on the request object
 app.use(express.urlencoded({ extended: true }))
 
-
-// mongodb+srv://vishalicious213_db_user:9aPRILVehFopzIju@cluster0.4srl9qn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-
-// MongoClient.connect('mongodb+srv://vishalicious213_db_user:9aPRILVehFopzIju@cluster0.4srl9qn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', (err, client) => {
-//     console.log("Mongo connected to database")
-// })
-
-MongoClient.connect('mongodb+srv://vishalicious213_db_user:9aPRILVehFopzIju@cluster0.4srl9qn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.4srl9qn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
     .then(client => {
-        console.log("Connected to database")
+        console.log('Connected to database')
         const db = client.db('star-wars-quotes')
+        const quotesCollection = db.collection('quotes')
         app.use(/* ... */)
         app.get(/* ... */)
         app.post(/* ... */)
