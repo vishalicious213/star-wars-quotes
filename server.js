@@ -11,15 +11,15 @@ MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}
         console.log('Connected to database')
         const db = client.db('star-wars-quotes')
         const quotesCollection = db.collection('quotes')
-        app.use(/* ... */)
-        app.get(/* ... */)
-        app.post(/* ... */)
-        app.listen(/* ... */)
+        // app.use(/* ... */)
+        // app.get(/* ... */)
+        // app.post(/* ... */)
+        // app.listen(/* ... */)
     })
     .catch(error => console.error(error))
 
 
-app.listen(3000, function () {
+app.listen(3000, () => {
     console.log('Listening on port 3000')
 })
 
