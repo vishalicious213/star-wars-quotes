@@ -15,6 +15,7 @@ MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}
         app.post("/quotes", (req, res) => {
             console.log("Posting to /quotes")
             console.log(req.body)
+
             quotesCollection
                 .insertOne(req.body)
                 .then(result => {
@@ -29,20 +30,13 @@ MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}
         })
 
         app.get("/", (req, res) => {
-            // res.send("Hello World")
+            const cursor = db.collection('quotes').find().toArray()
+
+            cursor
+                .then(results => console.log(results))
+                .catch(error => console.error(error))
+
             res.sendFile(__dirname + `/index.html`)
         })
-        // app.use(/* ... */)
-        // app.get(/* ... */)
-        // app.post(/* ... */)
-        // app.listen(/* ... */)
     })
     .catch(error => console.error(error))
-
-// app.post("/quotes", (req, res) => {
-//     console.log("Posting to /quotes")
-//     console.log(req.body)
-// })
-
-// console.log("May Node be with you")
-// console.log(__dirname)
