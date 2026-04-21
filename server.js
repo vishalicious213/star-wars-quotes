@@ -2,6 +2,8 @@ const express = require('express')
 const MongoClient = require('mongodb').MongoClient
 const app = express()
 
+// Set EJS as the view engine for rendering templates
+app.set('view engine', 'ejs')
 // urlencoded tells express to extract data from a form & add it
 // to the body property on the request object
 app.use(express.urlencoded({ extended: true }))
