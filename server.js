@@ -11,6 +11,27 @@ MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}
         console.log('Connected to database')
         const db = client.db('star-wars-quotes')
         const quotesCollection = db.collection('quotes')
+
+        app.post("/quotes", (req, res) => {
+            console.log("Posting to /quotes")
+            console.log(req.body)
+            quotesCollection
+                .insertOne(req.body)
+                .then(result => {
+                    console.log("Quote saved to database", result)
+                    res.redirect("/")
+                })
+                .catch(error => console.error(error))
+        })
+
+        app.listen(3000, () => {
+            console.log('Listening on port 3000')
+        })
+
+        app.get("/", (req, res) => {
+            // res.send("Hello World")
+            res.sendFile(__dirname + `/index.html`)
+        })
         // app.use(/* ... */)
         // app.get(/* ... */)
         // app.post(/* ... */)
@@ -18,20 +39,10 @@ MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}
     })
     .catch(error => console.error(error))
 
-
-app.listen(3000, () => {
-    console.log('Listening on port 3000')
-})
-
-app.get("/", (req, res) => {
-    // res.send("Hello World")
-    res.sendFile(__dirname + `/index.html`)
-})
-
-app.post("/quotes", (req, res) => {
-    console.log("Posting to /quotes")
-    console.log(req.body)
-})
+// app.post("/quotes", (req, res) => {
+//     console.log("Posting to /quotes")
+//     console.log(req.body)
+// })
 
 // console.log("May Node be with you")
 // console.log(__dirname)
