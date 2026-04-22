@@ -5,11 +5,14 @@
 }
 
 body {
-    margin: 1rem;
+    margin: 1rem auto;
+    padding: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 550px;
 }
 
 main, section {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     border: 1px solid black;
     border-radius: .5rem;
     padding: 1rem;
@@ -37,4 +40,15 @@ ul {
 
 button {
     margin-top: 1rem;
+}
+
+@media (min-width: 850px) {
+    body {
+        max-width: 1200px;
+    }
+
+    .container {
+        display: flex;
+        gap: 1rem;
+    }
 }

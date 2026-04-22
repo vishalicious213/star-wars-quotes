@@ -8,30 +8,33 @@
 </head>
 
 <body>
-    <main>
-        <h1>May Node & Express be with you.</h1>
+    <h1>May Node & Express be with you.</h1>
     
-        <form action="/quotes" method="POST">
-            <input type="text" placeholder="name" name="name">
-            <input type="text" placeholder="quote" name="quote">
-            <button type="submit">Submit</button>
-        </form>
-    </main>
-
-    <section>
-        <h2>Darth Vader invades!</h2>
-        <p>Replace first Yoda's quote with a quote written by Darth Vader.</p>
-        <button id="update-button">Replace Yoda's Quote</button>
-    </section>
-
-    <section>
-        <h2>Remove Darth Vader!</h2>
-        <p>Delete one Darth Vader quote. Does nothing if there are none.</p>
-        <div class="vaderMessage">
-            <button id="delete-button">Delete Darth Vader's Quote</button>
-            <div id="message"></div>
-        </div>
-    </section>
+    <div class="container">
+        <main>
+            <h2>Add quote</h2>
+            <form action="/quotes" method="POST">
+                <input type="text" placeholder="name" name="name">
+                <input type="text" placeholder="quote" name="quote">
+                <button type="submit">Submit</button>
+            </form>
+        </main>
+    
+        <section>
+            <h2>Darth Vader invades!</h2>
+            <p>Replace first Yoda's quote with a quote written by Darth Vader.</p>
+            <button id="update-button">Replace Yoda's Quote</button>
+        </section>
+    
+        <section>
+            <h2>Remove Darth Vader!</h2>
+            <p>Delete one Darth Vader quote. Does nothing if there are none.</p>
+            <div class="vaderMessage">
+                <button id="delete-button">Delete Darth Vader's Quote</button>
+                <div id="message"></div>
+            </div>
+        </section>
+    </div>
 
     <section>
         <h2>Quotes</h2>
