@@ -15,6 +15,13 @@
         <button type="submit">Submit</button>
     </form>
 
-    <%= quotes %>
+    <h2>Quotes</h2>
+    <ul class="quotes">
+        <% quotes.forEach(quote => { %>
+            <li>
+                <strong><%= quote.name %></strong>: <%= quote.quote %>
+            </li>
+        <% }) %>
+    </ul>
 </body>
 </html>
