@@ -9,6 +9,9 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true }))
 // static tells express to serve files from the public folder
 app.use(express.static('public'))
+// json tells express to extract JSON data from the body of a
+// request & add it to the body property on the request object
+app.use(express.json())
 
 MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.4srl9qn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
     .then(client => {
@@ -29,10 +32,6 @@ MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}
                 .catch(error => console.error(error))
         })
 
-        app.listen(3000, () => {
-            console.log('Listening on port 3000')
-        })
-
         app.get("/", (req, res) => {
             db.collection('quotes')
                 .find()
@@ -41,5 +40,13 @@ MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}
                 .catch(error => console.error(error))
             })
             // res.sendFile(__dirname + `/index.html`)
+
+        app.put('/quotes', (req, res) => {
+            console.log(req.body)
+        })
+
+        app.listen(3000, () => {
+            console.log('Listening on port 3000')
+        })
     })
     .catch(error => console.error(error))
