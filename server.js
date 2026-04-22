@@ -2,11 +2,13 @@ const express = require('express')
 const MongoClient = require('mongodb').MongoClient
 const app = express()
 
-// Set EJS as the view engine for rendering templates
+// set EJS as the view engine for rendering templates
 app.set('view engine', 'ejs')
 // urlencoded tells express to extract data from a form & add it
 // to the body property on the request object
 app.use(express.urlencoded({ extended: true }))
+// static tells express to serve files from the public folder
+app.use(express.static('public'))
 
 MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.4srl9qn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
     .then(client => {
