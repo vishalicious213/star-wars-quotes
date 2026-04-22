@@ -8,6 +8,13 @@ body {
     margin: 1rem;
 }
 
+main, section {
+    margin-bottom: 3rem;
+    border: 1px solid black;
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
 h1, h2 {
     margin-bottom: 1rem;
 }
@@ -16,9 +23,6 @@ ul {
     margin-left: 1rem;
 }
 
-main, section {
-    margin-bottom: 3rem;
-    border: 1px solid black;
-    border-radius: .5rem;
-    padding: 1rem;
+button {
+    margin-top: 1rem;
 }
