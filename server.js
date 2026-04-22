@@ -15,18 +15,18 @@ app.use(express.json())
 
 MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.4srl9qn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
     .then(client => {
-        console.log('Connected to database')
+        // console.log('Connected to database')
         const db = client.db('star-wars-quotes')
         const quotesCollection = db.collection('quotes')
 
         app.post("/quotes", (req, res) => {
-            console.log("Posting to /quotes")
+            // console.log("Posting to /quotes")
             console.log(req.body)
 
             quotesCollection
                 .insertOne(req.body)
                 .then(result => {
-                    console.log("Quote saved to database", result)
+                    // console.log("Quote saved to database", result)
                     res.redirect("/")
                 })
                 .catch(error => console.error(error))
@@ -42,7 +42,7 @@ MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}
             // res.sendFile(__dirname + `/index.html`)
 
         app.put('/quotes', (req, res) => {
-            console.log(req.body)
+            // console.log(req.body)
 
             quotesCollection
                 .findOneAndUpdate(
@@ -51,8 +51,8 @@ MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}
                     { upsert: true }
                 )
                 .then(result => {
-                    console.log(result)
                     res.json('Success')
+                    // console.log(result)
                 })
                 .catch(error => console.error(error))
         })
