@@ -32,13 +32,12 @@ MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}
         })
 
         app.get("/", (req, res) => {
-            const cursor = db.collection('quotes').find().toArray()
-
-            cursor
-                .then(results => console.log(results))
+            db.collection('quotes')
+                .find()
+                .toArray()
+                .then(results => res.render('index.ejs', { quotes: results }))
                 .catch(error => console.error(error))
-
-            res.sendFile(__dirname + `/index.html`)
-        })
+            })
+            // res.sendFile(__dirname + `/index.html`)
     })
     .catch(error => console.error(error))
