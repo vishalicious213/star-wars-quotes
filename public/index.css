@@ -15,6 +15,18 @@ main, section {
     padding: 1rem;
 }
 
+.vaderMessage {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#message {
+    font-weight: bold;
+    color: red;
+    margin-top: 1rem;
+}
+
 h1, h2 {
     margin-bottom: 1rem;
 }
