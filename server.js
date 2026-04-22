@@ -57,6 +57,18 @@ MongoClient.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}
                 .catch(error => console.error(error))
         })
 
+        app.delete('/quotes', (req, res) => {
+            // console.log(req.body)
+            quotesCollection
+                .deleteOne({ name: req.body.name })
+                .then(result => {
+                    res.json('Deleted Darth Vader quote')
+                    // console.log(result)
+                })
+                .catch(error => console.error(error))
+        })
+
+
         app.listen(3000, () => {
             console.log('Listening on port 3000')
         })
