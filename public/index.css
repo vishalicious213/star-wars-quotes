@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+html {
+    background: linear-gradient(to bottom right, steelblue, white 50%, steelblue);
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
 body {
     margin: 1rem auto;
     padding: 1rem;
@@ -16,6 +22,7 @@ main, section {
     border: 1px solid black;
     border-radius: .5rem;
     padding: 1rem;
+    background: rgba(255,255,255,0.5)
 }
 
 .vaderMessage {
